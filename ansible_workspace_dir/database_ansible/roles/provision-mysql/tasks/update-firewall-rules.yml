@@ -1,0 +1,2 @@
+- name: Restrict DB port to private IP only
+  shell: ufw allow in on {{ private_interface }} to any port {{ hostport }}

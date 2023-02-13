@@ -1,0 +1,16 @@
+# ---
+# # tasks file for deploy-sb-ext
+# - import_tasks: create-and-save-env-file.yml
+# - import_tasks: create-compose-dir.yml
+# - import_tasks: create-compose-file.yml
+# - import_tasks: remove-existing-service.yml
+# - import_tasks: deploy-service.yml
+# # - import_tasks: remove-compose-file.yml
+# # - import_tasks: remove-env-file.yml
+
+
+- import_tasks: test.yml
+- import_tasks: create-mount-folder.yml
+- import_tasks: create-db-container.yml
+- import_tasks: update-firewall-rules.yml
+- import_tasks: echo-connection-uri.yml

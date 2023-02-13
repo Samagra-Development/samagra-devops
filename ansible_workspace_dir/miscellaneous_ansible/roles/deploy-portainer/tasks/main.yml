@@ -1,0 +1,9 @@
+# ---
+# # tasks file for deploy-sb-ext
+- import_tasks: create-and-save-pass-file.yml
+- import_tasks: create-compose-dir.yml
+- import_tasks: create-compose-file.yml
+- import_tasks: remove-existing-service.yml
+- import_tasks: deploy-service.yml
+# - import_tasks: remove-compose-file.yml
+# - import_tasks: remove-pass-file.yml

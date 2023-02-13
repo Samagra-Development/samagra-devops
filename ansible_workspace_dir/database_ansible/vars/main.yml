@@ -1,0 +1,6 @@
+---
+# Update variables for each service here
+
+tag: latest
+db_mount_location: "/home/db"
+private_interface: "eth1"

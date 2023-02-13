@@ -1,0 +1,5 @@
+---
+  - name: Remove the compose file from the location
+    file:
+      path: "{{ compose_file_deployment_location }}"
+      state: absent

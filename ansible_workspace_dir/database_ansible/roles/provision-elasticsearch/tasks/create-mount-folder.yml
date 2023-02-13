@@ -1,0 +1,4 @@
+- name: Create mount directory for database
+  file:
+    path: "{{ db_mount_location }}/{{ database_name }}"
+    state: directory

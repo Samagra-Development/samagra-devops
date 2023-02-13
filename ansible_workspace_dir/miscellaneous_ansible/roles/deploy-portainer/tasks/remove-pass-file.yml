@@ -1,0 +1,5 @@
+---
+  - name: Remove the pass file from the location
+    file:
+      path: "{{ pass_file_location }}/{{ pass_file_name }}"
+      state: absent

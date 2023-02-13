@@ -1,0 +1,3 @@
+- debug:
+    # msg: "'{{ credentials }}' and '{{sec}}'"
+    msg: "Hi from postgres {{deploy_host_name}} '{{ username }}' {{database_name}} {{password}} "

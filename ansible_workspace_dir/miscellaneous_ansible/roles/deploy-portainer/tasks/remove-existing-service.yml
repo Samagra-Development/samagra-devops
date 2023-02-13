@@ -1,0 +1,3 @@
+---
+  - name: Removing the existing service {{  docker_service_stack_name  }}
+    shell: docker stack rm {{  docker_service_stack_name  }}

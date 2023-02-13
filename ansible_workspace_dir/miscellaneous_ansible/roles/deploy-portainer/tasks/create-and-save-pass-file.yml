@@ -1,0 +1,4 @@
+- name: Create and move {{ user_friendly_name }} pass file
+  copy:
+    dest: "{{ pass_file_location }}/{{ pass_file_name }}"
+    content: "{{ admin_pass }}"

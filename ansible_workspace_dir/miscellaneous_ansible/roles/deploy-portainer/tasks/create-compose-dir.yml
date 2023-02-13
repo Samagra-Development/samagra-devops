@@ -1,0 +1,5 @@
+---
+- name: Ensure compose files directory exists
+  file:
+    path: "{{ compose_files_dir }}"
+    state: directory

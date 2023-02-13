@@ -1,0 +1,14 @@
+- name: Create Redis with persistent storage
+  docker_container:
+    name:  "{{ database_name }}"
+    image: "{{ image_tag }}"
+    state: started
+    recreate: yes
+    restart_policy: always
+    ports:
+      - "{{ hostport }}:6379"
+    volumes:
+      - "{{ db_mount_location }}/{{ database_name }}:/data"
+    command:
+      - "{{ db_command }}"
+      

@@ -1,0 +1,14 @@
+[dev]
+#128.199.30.12 # same ip as docker swarm master
+localhost ansible_connection=local
+
+[konnect-swarm]
+64.227.181.5
+
+[all:vars]
+ansible_user=root
+
+# To run ansible playbooks locally, comment the former lines and uncomment the following 
+
+# localhost 
+# ansible_connection=local

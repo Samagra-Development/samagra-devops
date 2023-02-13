@@ -1,0 +1,14 @@
+- name: Create Postgres Container
+  docker_container:
+    name:  "{{ database_name }}"
+    image: "{{ image_tag }}"
+    state: started
+    recreate: yes
+    restart_policy: always
+    ports:
+      - "{{ hostport }}:5432"
+    volumes:
+      - "{{ db_mount_location }}/{{ database_name }}:/var/lib/postgresql/data"
+    env:
+      POSTGRES_USER: "{{ username }}"
+      POSTGRES_PASSWORD: "{{ password }}"

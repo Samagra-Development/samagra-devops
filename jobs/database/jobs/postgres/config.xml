@@ -71,7 +71,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>cd /home/database_ansible
+      <command>cd /home/samagra-devops/ansible_workspace_dir/database_ansible
 ansible-playbook -i inventory/hosts --extra-vars  &quot;deploy_host_name=&apos;${database_group}&apos; username=&apos;${username}&apos; password=&apos;${password}&apos; hostport=&apos;${hostport}&apos; database_name=&apos;${database_name}&apos; image_tag=&apos;${image_tag}&apos; private_interface=&apos;${private_interface}&apos; private_interface=&apos;${private_interface}&apos; db_mount_location=&apos;${db_mount_location}&apos;&quot; main.yml --tag provision-postgres
 </command>
       <configuredLocalRules/>

@@ -24,7 +24,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>#!/bin/bash
-cd /home/monitoring_ansible
+cd /home/samagra-devops/ansible_workspace_dir/miscellaneous_ansible
 ansible-playbook -i inventory/hosts --extra-vars  &quot;deploy_host_name=&apos;${host_group}&apos;&quot; main.yml --tag deploy-sentry
 </command>
       <configuredLocalRules/>

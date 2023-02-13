@@ -14,7 +14,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>#!/bin/bash
-cd /home/samarth-devops/ansible_workspace_dir
+cd /home/samagra-devops/ansible_workspace_dir/miscellaneous_ansible
 ansible-playbook -i inventory/hosts --extra-vars  &quot;deploy_host_name=dev&quot; main.yml --tag deploy-hashicorp-vault
 </command>
       <configuredLocalRules/>

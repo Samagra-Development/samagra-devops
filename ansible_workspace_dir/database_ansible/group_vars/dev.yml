@@ -1,0 +1,57 @@
+proto: http
+proxy_server_name: localhost
+sunbird_env: dev #rnvronment
+
+docker_hub_url: 128.199.26.225:5000
+
+env_files_dir: /wingspan_env_files
+
+# COMPOSE FILES DIR
+compose_files_dir: /wingspan_compose_files
+
+# Config files dir
+config_files_dir: /wingspan_config_files
+
+# Secret files dir
+docker_secret_files_dir: /wingspan_docker_secret_location
+
+memory_t: 128M
+memory_xs: 256M
+memory_s: 512M
+memory_m: 1024M
+memory_l: 2048M
+memory_xl: 4096M
+
+proxy_reservation_memory: "{{ memory_xs }}"
+proxy_limit_memory: "{{ memory_s }}"
+proxy_replicas: 1
+
+service_replicas_esmawad_backend_service: 1
+service_mem_reserved_web_service: "{{ memory_m }}"
+service_mem_limit_web_service: "{{ memory_l }}"
+
+service_replicas_fusion_auth_service: 1
+service_replicas_user_service: 1
+
+service_replicas_yaus_hasura_service: 1
+service_replicas_yaus_redis_ui_service: 1
+service_replicas_yaus_broker_service: 1
+service_replicas_yaus_web_service: 1
+
+
+service_replicas_odk_uci_adapter_service: 1
+service_replicas_odk_service: 1
+
+
+publish_ports: true
+var_docker_deploy_node_type: manager
+# cloud_type: azure #Cloud provider
+# storage_key: # cloud storage key
+# storage_secret: #loud storage secret
+# container_name: upsmf-data
+
+# #update SSL Key
+# core_vault_proxy_site_key: |+
+
+# #update SSL cert
+# core_vault_proxy_site_crt: |+

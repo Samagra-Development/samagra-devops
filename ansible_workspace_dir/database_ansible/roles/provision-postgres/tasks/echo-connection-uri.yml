@@ -1,0 +1,6 @@
+- name: Get hostport for the new DB 
+  shell: docker inspect --format='{{ '{{' }}(index (index .NetworkSettings.Ports "5432/tcp") 0).HostPort {{ '}}' }}' {{ database_name }}
+  register: docker_contents
+
+- debug: 
+    msg: "{{ database_name }} is running on '{{ ansible_host }}:{{ docker_contents.stdout }}' with username '{{ username }}' and password '{{ password }}'"

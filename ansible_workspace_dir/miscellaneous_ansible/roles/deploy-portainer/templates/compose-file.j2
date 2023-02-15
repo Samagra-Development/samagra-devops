@@ -1,0 +1,38 @@
+version: '3.2'
+
+services:
+  agent:
+    image: portainer/agent:2.16.0
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
+    networks:
+      - agent_network
+    deploy:
+      mode: global
+      placement:
+        constraints: [node.platform.os == linux]
+
+  portainer:
+    image: portainer/portainer-ce:2.16.0
+    command: -H tcp://tasks.agent:9001 --tlsskipverify --admin-password-file /tmp/pass
+    ports:
+      - "{{ host_port }}:{{ docker_port }}"
+    volumes:
+      - portainer_data:/data
+      - {{ pass_file_location }}/{{ pass_file_name }}:/tmp/pass
+    networks:
+      - agent_network
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+
+networks:
+  agent_network:
+    driver: overlay
+    attachable: true
+
+volumes:
+  portainer_data:

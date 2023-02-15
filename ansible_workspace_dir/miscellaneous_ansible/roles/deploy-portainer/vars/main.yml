@@ -1,0 +1,13 @@
+---
+# vars file for deploy-sb-ext
+# For script
+template_compose_file_name: compose-file.j2
+compose_file_name: "portainer.yml"
+pass_file_name: pass
+pass_file_location: /tmp/
+compose_file_deployment_location: "{{ compose_files_dir }}/{{ compose_file_name }}"
+user_friendly_name: Portainer
+docker_service_stack_name: portainer
+
+docker_port: 9443
+host_port: 9443

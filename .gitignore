@@ -1,0 +1,10 @@
+# Don't include builds of jobs, we might face merge conflicts
+*builds
+*nextBuildNumber
+
+*branches
+*indexing
+
+.idea
+
+*workspace

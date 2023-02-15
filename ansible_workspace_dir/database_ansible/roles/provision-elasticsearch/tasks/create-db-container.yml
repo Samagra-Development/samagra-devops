@@ -1,0 +1,33 @@
+- name: Create a network
+  docker_network:
+    name: "{{ database_name }}"
+    driver: bridge
+
+- name: Create a volume for ES container
+  docker_volume: 
+    name: "{{ database_name }}"
+    driver: local
+    driver_options:
+      type: none
+      o: bind
+      device: "{{ db_mount_location }}/{{ database_name }}"
+      
+- name: Create ElasticSearch Container
+  docker_container:
+    name:  "{{ database_name }}"
+    image: "{{ image_tag }}"
+    state: started
+    recreate: yes
+    restart_policy: always
+    ports:
+      - "{{ hostport }}:9200"
+    env:
+      discovery.type: "{{ discovery_type }}"
+      ES_JAVA_OPTS: "{{ ES_JAVA_OPTS }}"
+      network.host: "{{ network_host }}"
+      ELASTIC_PASSWORD: "{{ password }}"
+      xpack.security.enabled: "false"
+    volumes:
+      - "{{ database_name }}:/usr/share/elasticsearch/data"
+    networks:
+      - name: "{{ database_name }}"

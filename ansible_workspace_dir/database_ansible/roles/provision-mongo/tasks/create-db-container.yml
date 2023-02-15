@@ -1,0 +1,14 @@
+- name: Create Mongo Container
+  docker_container:
+    name:  "{{ database_name }}"
+    image: "{{ image_tag }}"
+    state: started
+    recreate: yes
+    restart_policy: always
+    ports:
+      - "{{ hostport }}:27017"
+    volumes:
+      - "{{ db_mount_location }}/{{ database_name }}:/data/db"
+    env:
+      MONGO_INITDB_ROOT_USERNAME: "{{ username }}"
+      MONGO_INITDB_ROOT_PASSWORD: "{{ password }}"

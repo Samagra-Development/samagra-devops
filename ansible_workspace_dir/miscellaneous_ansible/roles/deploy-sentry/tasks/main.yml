@@ -1,0 +1,22 @@
+# # ---
+# # # tasks file for deploy-sb-ext
+# - import_tasks: create-and-save-pass-file.yml
+# - import_tasks: create-compose-dir.yml
+# - import_tasks: create-compose-file.yml
+# - import_tasks: remove-existing-service.yml
+# - import_tasks: deploy-service.yml
+# # - import_tasks: remove-compose-file.yml
+# # - import_tasks: remove-pass-file.yml
+
+
+---
+- name: Git clone the main sentry repo
+  ansible.builtin.git:
+    repo: 'https://github.com/getsentry/self-hosted.git'
+    dest: '~/sentry'
+
+- name: Run install.sh in sentry
+  shell: cd ~/sentry && ./install.sh --skip-user-creation --no-report-self-hosted-issues
+
+- name: Start sentry services
+  shell: cd ~/sentry && docker-compose up -d

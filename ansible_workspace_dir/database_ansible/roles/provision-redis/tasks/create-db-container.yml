@@ -1,7 +1,7 @@
 - name: Create Redis with persistent storage
   docker_container:
     name:  "{{ database_name }}"
-    image: "{{ image_tag }}"
+    image: "{{ docker_hub_url_pub }}/{{ image_tag }}"
     state: started
     recreate: yes
     restart_policy: always

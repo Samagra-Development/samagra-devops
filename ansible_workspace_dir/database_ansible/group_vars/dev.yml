@@ -3,6 +3,7 @@ proxy_server_name: localhost
 sunbird_env: dev #rnvronment
 
 docker_hub_url: 128.199.26.225:5000
+docker_hub_url_pub: registry-1.docker.io
 
 env_files_dir: /wingspan_env_files
 

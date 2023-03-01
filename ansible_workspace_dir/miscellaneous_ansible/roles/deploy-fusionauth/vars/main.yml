@@ -1,0 +1,10 @@
+---
+# vars file for deploy-sb-ext
+# For script
+template_compose_file_name: compose-file.j2
+compose_file_name: "fusionauth.yml"
+compose_file_deployment_location: "{{ compose_files_dir }}/{{ compose_file_name }}"
+fusionauth_secret_path: kv/data/ulp/uci-admin
+
+credentials: "{{ lookup('hashi_vault', 'secret={{ fusionauth_secret_path }}', url=VAULT_ADDR, token=VAULT_TOKEN) }}"
+

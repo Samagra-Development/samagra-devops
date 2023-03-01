@@ -2,6 +2,7 @@
   docker_container:
     name:  "{{ database_name }}"
     image: "{{ image_tag }}"
+    command: --replSet rs0
     state: started
     recreate: yes
     restart_policy: always

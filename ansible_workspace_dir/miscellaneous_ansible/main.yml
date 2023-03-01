@@ -10,8 +10,8 @@
       tags: [deploy-portainer]
     - role: deploy-sentry
       tags: [deploy-sentry]
-    - role: deploy-posthog
-      tags: [deploy-posthog]
+    - role: deploy-fusionauth]
+      tags: [deploy-fusionauth]
     
     
 

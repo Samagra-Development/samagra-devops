@@ -1,0 +1,4 @@
+- name: Create and move {{ user_friendly_name }} template
+  template:
+    src: "{{ template_compose_file_name }}"
+    dest: "{{ compose_file_deployment_location }}"

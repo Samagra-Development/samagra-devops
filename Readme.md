@@ -18,3 +18,6 @@ systemctl restart jenkins
 
 ```
 You configure the `inventory/hosts` file in ansilble_roles for your server
+
+# Docs link
+https://github.com/Samagra-Development/Samagra-DevOps-Guide

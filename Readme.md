@@ -11,7 +11,7 @@ ln -s /home/samagra-devops/jobs/database /var/lib/jenkins/jobs
 ln -s /home/samagra-devops/jobs/miscellaneous /var/lib/jenkins/jobs/
 
 # Make sure we have right permissions set
-chown -R jenkins:jenkins jobs
+chown -R jenkins:jenkins /home/samagra-devops/jobs
 chown -R jenkins:jenkins /var/lib/jenkins
 
 systemctl restart jenkins

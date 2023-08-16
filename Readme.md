@@ -7,10 +7,12 @@ cd /home
 git clone https://github.com/Samagra-Development/samagra-devops.git
 
 # symbolic links to jenkins jobs folder
-ln -s /home/samagra-devops/jobs/database /var/lib/jenkins/jobs
-ln -s /home/samagra-devops/jobs/miscellaneous /var/lib/jenkins/jobs/
+mkdir -p /var/lib/jenkins/jobs  # to ensure the base directory exists for sure
+ln -s /home/samagra-devops/jobs/database /var/lib/jenkins/jobs/database
+ln -s /home/samagra-devops/jobs/miscellaneous /var/lib/jenkins/jobs/miscellaneous
 
 # Make sure we have right permissions set
+cd /home/samagra-devops  # make sure you change the directory path if it's changed at cloning step
 chown -R jenkins:jenkins jobs
 chown -R jenkins:jenkins /var/lib/jenkins
 

@@ -6,21 +6,10 @@
   vars_files:
     - "vars/main.yml"
   roles:
-
-    - role: provision-postgres
-      tags: [provision-postgres]
+    - {role : provision-postgres, tags:[provision-postgres]}
+    - {role : provision-sqlite, tags:[provision-sqlite]}
+    - {role : provision-mysql, tags:[provision-mysql]}
+    - {role : provision-redis, tags:[provision-redis]}
+    - { role: provision-elasticsearch, tags: [provision-elasticsearch] }
+    - { role: provision-mongo, tags: [provision-mongo] }
     
-    - role: provision-sqlite
-      tags: [provision-sqlite]
-    
-    - role: provision-mysql
-      tags: [provision-mysql]
-    
-    - role: provision-redis
-      tags: [provision-redis]
-
-    - role: provision-elasticsearch
-      tags: [provision-elasticsearch]
-
-    - role: provision-mongo
-      tags: [provision-mongo]
